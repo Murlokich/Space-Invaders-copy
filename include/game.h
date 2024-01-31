@@ -1,3 +1,6 @@
+#ifndef GAME_H_
+#define GAME_H_
+
 namespace spaceInvaders {
 
 class Game {
@@ -8,7 +11,7 @@ private:
     int record_score;
     // Player player;
     // std::vector<Enemy> enemies
-    // std::vector<Barrier> barriers
+    // std::vector<Bunker> bunkers
     // Cannon cannon 
     // Renderer renderer
 public:
@@ -17,3 +20,5 @@ public:
 };
 
 }  // namespace SpaceInvaders
+
+#endif

@@ -1,17 +1,26 @@
+#ifndef ALIEN_H_
+#define ALIEN_H_
+
 #include "game_entity.h"
 
 namespace spaceInvaders {
 
-class Alien: GameEntity {
+class Alien: public GameEntity {
 private:
-    float speed = 1.0f;
+    static float speed;
+    static const int HEIGHT_UNITS = 2;
+
 public:
     void moveLeft();
     void moveRight();
     void moveDown();
     void speedUp();
+    virtual int getScore() const = 0;
 
-    virtual ~Alien() = 0;  // To make class abstract
+    Alien(int x_, int y_, int width_pixels);
+    virtual ~Alien() {}  // To make class abstract
+
 };
 
 }
+#endif

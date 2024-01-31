@@ -5,19 +5,18 @@
 
 namespace spaceInvaders {
 
-class Cannon: GameEntity {
+class Cannon final: public GameEntity {
 private:
-    static const int WIDTH = 20;
-    static const int HEIGHT = 10;
+    static const int HEIGHT_UNITS = 2;
+    static const int WIDTH_UNITS = 3;
 public: 
-    class Bullet: GameEntity {
-        friend Cannon;  // Allows that only Cannon generates bullets
+    class Bullet: public GameEntity {
     public:
         void move();
-    private:
-        static const int WIDTH = 1;
-        static const int HEIGHT = 1;
         Bullet(int x_, int y_);
+    private:
+        static const int HEIGHT_UNITS = 1;
+        static constexpr float WIDTH_UNITS = 0.5f;
     };
 
     void moveRight();

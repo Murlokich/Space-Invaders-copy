@@ -9,21 +9,23 @@ void Cannon::moveRight() {
 
 void Cannon::moveLeft() {
     assert(x >= 10);
-    x -= 10;  // moves by 10 pixels to the right
+    x -= 10;  // moves by 10 pixels to the left
 }
 
-Cannon::Cannon(int x_, int y_):
-                    GameEntity(x_, y_, HEIGHT, WIDTH){}
+Cannon::Cannon(int x_, int y_): GameEntity(x_, y_, 
+                                    HEIGHT_UNITS * UNIT_PIXEL_SIZE, 
+                                    WIDTH_UNITS * UNIT_PIXEL_SIZE){}
 
 Cannon::Bullet Cannon::shoot() const {
     return Cannon::Bullet(x + width / 2, y + 1);
 }
 
 void Cannon::Bullet::move() {
-    y += 10;
+    y -= UNIT_PIXEL_SIZE;
 }
 
-Cannon::Bullet::Bullet(int x_, int y_): 
-                        GameEntity(x_, y_, HEIGHT, WIDTH) {}
+Cannon::Bullet::Bullet(int x_, int y_): GameEntity(x_, y_, 
+                                            HEIGHT_UNITS * UNIT_PIXEL_SIZE,
+                                            WIDTH_UNITS * UNIT_PIXEL_SIZE) {}
 
 }

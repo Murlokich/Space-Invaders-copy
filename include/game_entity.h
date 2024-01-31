@@ -1,11 +1,15 @@
+#ifndef GAME_ENTITY_H_
+#define GAME_ENTITY_H_
 
 namespace spaceInvaders {
 
 class GameEntity {
-private:    
+protected:   
     int x, y;
     const int height, width;
 public:
+    static const int UNIT_PIXEL_SIZE = 20; 
+
     int getX() const;
     int getY() const;
     int getHeight() const;
@@ -17,3 +21,5 @@ public:
 };
 
 }  // namespace spaceInvaders
+
+#endif
